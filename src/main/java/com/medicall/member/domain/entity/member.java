@@ -1,5 +1,6 @@
 package com.medicall.member.domain.entity;
 
+import com.medicall.common.domain.BaseEntity;
 import com.medicall.common.enums.MemberType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class member {
+public class member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
