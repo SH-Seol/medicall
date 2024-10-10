@@ -1,4 +1,4 @@
-package com.medicall.member.domain.entity;
+package com.medicall.location.domain.entity;
 
 import com.medicall.common.domain.BaseEntity;
 
