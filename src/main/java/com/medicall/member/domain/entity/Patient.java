@@ -14,24 +14,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Patient extends BaseEntity {
+public class Patient extends Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, length = 20)
-    private String name;
-
-    @Column(nullable = false, length = 255)
-    private String email;
-
-    private String profileImage;
-
-    @Builder
-    public Patient(String name, String email, String profileImage) {
-        this.name = name;
-        this.email = email;
-        this.profileImage = profileImage;
-    }
 }

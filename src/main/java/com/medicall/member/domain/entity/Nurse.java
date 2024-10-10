@@ -1,6 +1,7 @@
 package com.medicall.member.domain.entity;
 
 import com.medicall.common.domain.BaseEntity;
+import com.medicall.common.enums.MedicalStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,23 +15,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Nurse extends BaseEntity {
+public class Nurse extends Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 20)
-    private String name;
-
-    @Column(nullable = false, length = 255)
-    private String email;
-
-    private String profileImage;
+    private MedicalStatus status;
 
     @Builder
-    public Nurse(String name, String email, String profileImage) {
-        this.name = name;
-        this.email = email;
-        this.profileImage = profileImage;
+    public Nurse(MedicalStatus status) {
+        this.status = status;
     }
 }
