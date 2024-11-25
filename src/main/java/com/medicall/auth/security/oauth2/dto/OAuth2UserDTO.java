@@ -1,7 +1,7 @@
 package com.medicall.auth.security.oauth2.dto;
 
 import com.medicall.common.enums.MemberRole;
-import com.medicall.member.domain.entity.Member;
+import com.medicall.domain.member.domain.entity.Member;
 import lombok.Builder;
 
 @Builder

@@ -5,7 +5,7 @@ import com.medicall.auth.security.oauth2.dto.OAuth2UserDTO;
 import com.medicall.auth.security.service.JwtService;
 import com.medicall.auth.security.service.RedisAuthService;
 import com.medicall.error.exception.CustomException;
-import com.medicall.member.domain.entity.Member;
+import com.medicall.domain.member.domain.entity.Member;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

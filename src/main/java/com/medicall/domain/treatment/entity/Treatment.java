@@ -1,9 +1,8 @@
-package com.medicall.treatment.entity;
+package com.medicall.domain.treatment.entity;
 
 import com.medicall.common.domain.BaseEntity;
-import com.medicall.member.domain.entity.Doctor;
-import com.medicall.member.domain.entity.Patient;
-import jakarta.persistence.Column;
+import com.medicall.domain.member.domain.entity.Doctor;
+import com.medicall.domain.member.domain.entity.Patient;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;

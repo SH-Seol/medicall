@@ -1,6 +1,6 @@
-package com.medicall.member.repository;
+package com.medicall.domain.member.repository;
 
-import com.medicall.member.domain.entity.Member;
+import com.medicall.domain.member.domain.entity.Member;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

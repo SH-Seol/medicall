@@ -1,6 +1,6 @@
-package com.medicall.treatment.repository;
+package com.medicall.domain.treatment.repository;
 
-import com.medicall.treatment.entity.Treatment;
+import com.medicall.domain.treatment.entity.Treatment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

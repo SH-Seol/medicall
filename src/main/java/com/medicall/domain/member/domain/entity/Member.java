@@ -1,4 +1,4 @@
-package com.medicall.member.domain.entity;
+package com.medicall.domain.member.domain.entity;
 
 import com.medicall.common.domain.BaseEntity;
 import com.medicall.common.enums.MemberRole;
