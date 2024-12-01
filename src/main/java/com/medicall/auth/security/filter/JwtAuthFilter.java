@@ -1,6 +1,7 @@
 package com.medicall.auth.security.filter;
 
 
+import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.auth.security.oauth2.dto.OAuth2UserDTO;
 import com.medicall.auth.security.service.JwtService;
 import com.medicall.auth.security.service.RedisAuthService;
