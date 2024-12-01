@@ -1,29 +1,31 @@
-package com.medicall.domain.member.domain.entity;
+package com.medicall.domain.location.domain.entity;
 
-import com.medicall.common.enums.MedicalStatus;
+import com.medicall.common.domain.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Nurse extends Member {
+public class Hospital extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 20)
-    private MedicalStatus status;
+    /*
+    병원 이름
+     */
+    @Column(length = 200)
+    private String title;
 
-    @Builder
-    public Nurse(MedicalStatus status) {
-        this.status = status;
-    }
+    /*
+    병원 진료과목
+     */
+
 }
