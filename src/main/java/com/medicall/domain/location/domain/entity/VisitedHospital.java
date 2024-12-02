@@ -23,5 +23,5 @@ public class VisitedHospital extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", nullable = false)
-    private Patient member;
+    private Patient patient;
 }
