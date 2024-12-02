@@ -16,7 +16,6 @@ public class Major extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     /*
     전공명
     ex. 외과, 내과, 등등
