@@ -3,6 +3,7 @@ package com.medicall.domain.treatment.entity;
 import com.medicall.common.domain.BaseEntity;
 import com.medicall.domain.member.domain.entity.Doctor;
 import com.medicall.domain.member.domain.entity.Patient;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
@@ -35,7 +37,7 @@ public class Prescription extends BaseEntity {
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "prescription", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "inform", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PrescriptionMedicine> prescriptionMedicines = new ArrayList<>();
 
 }
