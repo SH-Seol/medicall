@@ -1,5 +1,6 @@
 package com.medicall.auth.security.oauth2.handler;
 
+import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.auth.security.service.CookieService;
 import com.medicall.auth.security.service.JwtService;
 import jakarta.servlet.ServletException;

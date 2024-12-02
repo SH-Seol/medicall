@@ -1,6 +1,7 @@
 package com.medicall.auth.security.oauth2.service;
 
 
+import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.auth.security.oauth2.dto.OAuth2Attributes;
 import com.medicall.auth.security.oauth2.dto.OAuth2UserDTO;
 import com.medicall.auth.security.oauth2.enums.SocialType;
@@ -44,19 +45,17 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                             .nickname(oAuth2Attributes.nickname())
                             .email(oAuth2Attributes.email())
                             .profileImage(oAuth2Attributes.profileImage())
-                            .role(MemberRole.USER)
+                            .memberRole(MemberRole.USER)
                             .allowance(false)
                             .build();
 
-                    log.info("사용자 가입 이메일: {}", newMember.getEmail());
                     return memberRepository.save(newMember);
                 });
-        log.info("사용자 로그인 이메일: {}", member.getEmail());
         OAuth2UserDTO oauth2UserDTO = OAuth2UserDTO.from(member);
 
         // SecurityContext 에 저장
         return new CustomOAuth2User(oauth2UserDTO);
     }
-
 }
+
 

@@ -20,7 +20,7 @@ public record OAuth2UserDTO(
                 member.getEmail(),
                 member.getProfileImage(),
                 member.getAllowance(),
-                member.getRole()
+                member.getMemberRole()
         );
     }
 }

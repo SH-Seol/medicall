@@ -5,7 +5,7 @@ import com.medicall.auth.security.filter.JwtAuthFilter;
 import com.medicall.auth.security.handler.CustomAccessDeniedHandler;
 import com.medicall.auth.security.handler.CustomAuthenticationEntryPoint;
 import com.medicall.auth.security.oauth2.handler.CustomSuccessHandler;
-import com.medicall.auth.security.service.CustomOAuth2UserService;
+import com.medicall.auth.security.oauth2.service.CustomOAuth2UserService;
 import com.medicall.auth.security.service.JwtService;
 import com.medicall.auth.security.service.RedisAuthService;
 import java.util.Arrays;
