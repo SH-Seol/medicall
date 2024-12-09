@@ -1,0 +1,14 @@
+services:
+  redis:
+    image: redis:7.0.12
+    container_name: medicall-redis
+    ports:
+      - "6378:6379"
+    volumes:
+      - ./medicall-data:/data
+#    networks:
+#      - medicall-network
+#
+#networks:
+#  medicall-network:
+#    external: true

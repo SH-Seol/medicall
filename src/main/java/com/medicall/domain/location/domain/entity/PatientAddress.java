@@ -23,6 +23,6 @@ public class PatientAddress extends BaseEntity {
     private Patient patient;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id", nullable = false)
+    @JoinColumn(name = "address_id", nullable = false)
     private Address address;
 }
