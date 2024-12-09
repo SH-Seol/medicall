@@ -6,7 +6,7 @@ import com.medicall.error.code.AuthErrorCode;
 import com.medicall.error.code.CommonErrorCode;
 import com.medicall.error.exception.CustomException;
 import com.medicall.domain.member.domain.entity.Member;
-import com.medicall.domain.member.repository.MemberRepository;
+import com.medicall.domain.member.domain.repository.MemberRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;

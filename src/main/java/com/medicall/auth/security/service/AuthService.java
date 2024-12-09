@@ -7,7 +7,7 @@ import com.medicall.error.code.AuthErrorCode;
 import com.medicall.error.code.CommonErrorCode;
 import com.medicall.error.exception.CustomException;
 import com.medicall.domain.member.domain.entity.Member;
-import com.medicall.domain.member.repository.MemberRepository;
+import com.medicall.domain.member.domain.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

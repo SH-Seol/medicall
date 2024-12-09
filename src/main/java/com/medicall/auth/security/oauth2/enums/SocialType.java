@@ -5,8 +5,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 
 @Getter
 public enum SocialType {
-    KAKAO("kakao", "카카오 로그인"),
-    NAVER("naver", "네이버 로그인");
+    kakao("kakao", "카카오 로그인"),
+    naver("naver", "네이버 로그인");
 
     private final String registrationId;
     private final String title;

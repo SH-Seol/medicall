@@ -12,8 +12,8 @@ public record OAuth2Attributes(
 
     public static OAuth2Attributes of(SocialType socialType, Map<String, Object> attributes) {
         return switch (socialType) {
-            case KAKAO -> ofKakao(attributes);
-            case NAVER -> ofNaver(attributes);
+            case kakao -> ofKakao(attributes);
+            case naver -> ofNaver(attributes);
         };
     }
 
