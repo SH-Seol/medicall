@@ -28,9 +28,7 @@ public class Doctor extends BaseEntity {
     private Long id;
 
     //전공
-    @Column(nullable = false, length = 30)
-    @ManyToOne
-    private Major major;
+    private Long majorId;
 
     @Column(nullable = false, length = 20)
     private MedicalStatus status;
@@ -39,7 +37,7 @@ public class Doctor extends BaseEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @OneToMany
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prescription> prescriptions;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,4 +1,4 @@
-package com.medicall.domain.member.repository;
+package com.medicall.domain.member.domain.repository;
 
 import com.medicall.domain.member.domain.entity.Member;
 import java.util.Optional;

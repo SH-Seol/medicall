@@ -36,15 +36,15 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MemberRole memberRole;
 
+    // patient or doctor
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private MedicalRole medicalRole; // patient or doctor
+    private MedicalRole medicalRole;
 
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-    private Patient patient;
+    //환자 id
+    private Long patientId;
 
-    @OneToOne(mappedBy = "member", cascade = CascadeType.ALL)
-    private Doctor doctor;
+    //의사 id
+    private Long doctorId;
 
 
     private float locationX;
@@ -52,16 +52,22 @@ public class Member extends BaseEntity {
 
     @Builder
     public Member(Long memberId, String nickname, String email, String profileImage, MemberRole memberRole,
-                  Boolean allowance) {
+                  MedicalRole medicalRole, Boolean allowance) {
         this.id = memberId;
         this.nickname = nickname;
         this.email = email;
         this.profileImage = profileImage;
         this.memberRole = memberRole;
+        this.medicalRole = medicalRole;
         this.allowance = allowance;
     }
 
     public void updateAllowance() {
         this.allowance = true;
     }
+
+    public void updateMedicalRole(MedicalRole medicalRole) {
+        this.medicalRole = medicalRole;
+    }
 }
+
