@@ -79,7 +79,10 @@ public class JwtService {
      * @return 생성된 JWT 액세스 토큰 문자열
      */
     public String createAccessToken(Long memberId) {
-        return createToken(memberId, accessTokenExpiresIn, accessTokenSecretKey);
+        System.out.printf("AccessToken 발급: ${%d}\n", memberId);
+        String accessToken = createToken(memberId, accessTokenExpiresIn, accessTokenSecretKey);
+        log.warn("Access token: {}", accessToken);
+        return accessToken;
     }
 
     /**
@@ -89,8 +92,10 @@ public class JwtService {
      * @return 생성된 JWT 리프레시 토큰 문자열
      */
     public String createRefreshToken(Long memberId) {
+        System.out.printf("RefreshToken 발급: ${%d}\n", memberId);
         String refreshToken = createToken(memberId, refreshTokenExpiresIn, refreshTokenSecretKey);
         redisService.setRefreshToken(memberId, refreshToken, refreshTokenExpiresIn);
+        log.warn("Refresh token: {}", refreshToken);
         return refreshToken;
     }
 
@@ -275,6 +280,7 @@ public class JwtService {
                 log.warn("[AUTH_WARNING] JWT 토큰 형식이 올바르지 않음: {}", e.getMessage());
                 throw new CustomException(AuthErrorCode.INVALID_TOKEN_FORMAT);
             } else if (e instanceof SignatureException) {
+                log.warn("{} token 내용", token);
                 log.warn("[AUTH_WARNING] JWT 토큰의 서명이 일치하지 않음: {}", e.getMessage());
                 throw new CustomException(AuthErrorCode.INVALID_TOKEN_SIGNATURE);
             } else if (e instanceof UnsupportedJwtException) {
