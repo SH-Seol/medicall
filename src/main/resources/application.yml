@@ -3,14 +3,11 @@ server:
 
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: 'jdbc:h2:~/test'
-    username: 'sa'
-    password:
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    url: jdbc:mysql://localhost:3306/medicall
+    username: root
+    password: koobolley11
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
   data:
     redis:
       host: localhost
@@ -20,8 +17,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+      show-sql: true
   security:
     oauth2:
       client:
