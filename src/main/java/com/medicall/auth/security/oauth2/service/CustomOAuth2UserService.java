@@ -5,7 +5,6 @@ import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.auth.security.oauth2.dto.OAuth2Attributes;
 import com.medicall.auth.security.oauth2.dto.OAuth2UserDTO;
 import com.medicall.auth.security.oauth2.enums.SocialType;
-import com.medicall.common.enums.MedicalRole;
 import com.medicall.common.enums.MemberRole;
 import com.medicall.domain.member.domain.entity.Member;
 import com.medicall.domain.member.domain.repository.MemberRepository;
@@ -47,7 +46,6 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                             .email(oAuth2Attributes.email())
                             .profileImage(oAuth2Attributes.profileImage())
                             .memberRole(MemberRole.USER)
-                            .medicalRole(MedicalRole.PATIENT)
                             .allowance(false)
                             .build();
 
