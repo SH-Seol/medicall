@@ -1,8 +1,7 @@
-package com.medicall.domain.member.controller.member;
+package com.medicall.domain.member.controller;
 
 import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
-import com.medicall.domain.member.domain.repository.DoctorRepository;
-import com.medicall.domain.member.domain.repository.PatientRepository;
+import com.medicall.domain.medical.domain.repository.DoctorRepository;
 import com.medicall.domain.member.dto.request.MedicalRoleRequest;
 import com.medicall.domain.member.dto.response.DoctorResponse;
 import com.medicall.domain.member.dto.response.MedicalRoleResponse;
@@ -12,6 +11,7 @@ import com.medicall.domain.member.service.member.MemberQueryService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/members")
 @Tag(name = "\uD83D\uDC68\u200D\uD83C\uDF3E 사용자", description = "Member API")
 public class MemberController {
     private final MemberQueryService memberQueryService;
-    private final PatientRepository patientRepository;
     private final DoctorRepository doctorRepository;
     private final DoctorQueryService doctorQueryService;
 
@@ -38,6 +38,7 @@ public class MemberController {
     public ResponseEntity<MedicalRoleResponse> addMedicalRole(
             @RequestBody MedicalRoleRequest medicalRoleRequest,
             @AuthenticationPrincipal CustomOAuth2User user) {
+        log.warn("addMedicalRole: {}", user.getMemberId());
         return null;
     }
 
@@ -47,6 +48,7 @@ public class MemberController {
     @GetMapping("/profile")
     public ResponseEntity<ProfileResponse> getProfile(@AuthenticationPrincipal CustomOAuth2User user) {
         ProfileResponse response = memberQueryService.getProfile(user.getMemberId());
+        log.warn("getProfile: {}", user.getMemberId());
         System.out.println(response);
         return ResponseEntity.ok(response);
     }
@@ -56,7 +58,8 @@ public class MemberController {
      */
     @GetMapping("/doctors")
     public ResponseEntity<List<DoctorResponse>> getDoctor(@AuthenticationPrincipal CustomOAuth2User user) {
-        List<DoctorResponse> response = doctorQueryService.getAllDoctorFromPatient();
+        log.info("getDoctor: {}", user.getMemberId());
+        List<DoctorResponse> response = doctorQueryService.getAllDoctorFromPatient(user.getMemberId());
         return ResponseEntity.ok(response);
     }
 

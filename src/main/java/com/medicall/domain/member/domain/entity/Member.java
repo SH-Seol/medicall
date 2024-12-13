@@ -1,17 +1,18 @@
 package com.medicall.domain.member.domain.entity;
 
 import com.medicall.common.domain.BaseEntity;
-import com.medicall.common.enums.MedicalRole;
 import com.medicall.common.enums.MemberRole;
+import com.medicall.domain.medical.domain.entity.Diagnosis;
+import com.medicall.domain.treatment.entity.Prescription;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -36,38 +37,25 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MemberRole memberRole;
 
-    // patient or doctor
-    @Enumerated(EnumType.STRING)
-    private MedicalRole medicalRole;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Diagnosis> diagnoses;
 
-    //환자 id
-    private Long patientId;
-
-    //의사 id
-    private Long doctorId;
-
-
-    private float locationX;
-    private float locationY;
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Prescription> prescriptions;
 
     @Builder
     public Member(Long memberId, String nickname, String email, String profileImage, MemberRole memberRole,
-                  MedicalRole medicalRole, Boolean allowance) {
+                  Boolean allowance) {
         this.id = memberId;
         this.nickname = nickname;
         this.email = email;
         this.profileImage = profileImage;
         this.memberRole = memberRole;
-        this.medicalRole = medicalRole;
         this.allowance = allowance;
     }
 
     public void updateAllowance() {
         this.allowance = true;
-    }
-
-    public void updateMedicalRole(MedicalRole medicalRole) {
-        this.medicalRole = medicalRole;
     }
 }
 

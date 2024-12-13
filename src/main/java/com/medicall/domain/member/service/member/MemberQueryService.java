@@ -1,4 +1,4 @@
-package com.medicall.domain.member.service;
+package com.medicall.domain.member.service.member;
 
 import com.medicall.domain.member.domain.entity.Member;
 import com.medicall.domain.member.domain.repository.MemberRepository;
