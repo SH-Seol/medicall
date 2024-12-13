@@ -1,6 +1,7 @@
-package com.medicall.domain.member.domain.entity;
+package com.medicall.domain.medical.domain.entity;
 
 import com.medicall.common.domain.BaseEntity;
+import com.medicall.domain.member.domain.entity.Member;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Diagnosis extends BaseEntity {
     private Doctor doctor; // 진단을 내린 의사
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient; // 진단을 받은 환자
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member; // 진단을 받은 환자
 
     @Column(nullable = false)
     private String diagnosisDetails;
