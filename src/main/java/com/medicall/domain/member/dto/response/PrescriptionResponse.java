@@ -1,4 +1,10 @@
 package com.medicall.domain.member.dto.response;
 
-public record PrescriptionDTO() {
+import java.time.LocalDateTime;
+
+public record PrescriptionResponse(
+        Long id,
+        String specialty,
+        LocalDateTime createdAt
+) {
 }

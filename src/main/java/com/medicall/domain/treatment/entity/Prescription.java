@@ -1,8 +1,8 @@
 package com.medicall.domain.treatment.entity;
 
 import com.medicall.common.domain.BaseEntity;
-import com.medicall.domain.member.domain.entity.Doctor;
-import com.medicall.domain.member.domain.entity.Patient;
+import com.medicall.domain.medical.domain.entity.Doctor;
+import com.medicall.domain.member.domain.entity.Member;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -30,8 +30,8 @@ public class Prescription extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id", nullable = false)
