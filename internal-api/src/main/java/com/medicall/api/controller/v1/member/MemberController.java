@@ -1,4 +1,4 @@
-package com.medicall.domain.member.controller;
+package com.medicall.api.controller.v1.member;
 
 import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.medical.domain.repository.DoctorRepository;

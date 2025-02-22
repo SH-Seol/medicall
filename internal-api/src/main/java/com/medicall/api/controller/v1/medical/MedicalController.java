@@ -1,4 +1,4 @@
-package com.medicall.domain.medical.controller;
+package com.medicall.api.controller.v1.medical;
 
 import com.medicall.domain.location.domain.entity.Hospital;
 import com.medicall.domain.location.dto.response.HospitalResponse;
