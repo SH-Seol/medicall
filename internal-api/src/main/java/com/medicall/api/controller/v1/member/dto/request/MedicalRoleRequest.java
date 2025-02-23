@@ -1,4 +1,4 @@
-package com.medicall.domain.member.dto.request;
+package com.medicall.api.controller.v1.member.dto.request;
 
 public record MedicalRoleRequest(
         String role

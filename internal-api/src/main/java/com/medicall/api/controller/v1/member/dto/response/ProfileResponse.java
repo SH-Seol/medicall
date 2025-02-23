@@ -1,4 +1,4 @@
-package com.medicall.domain.member.dto.response;
+package com.medicall.api.controller.v1.member.dto.response;
 
 public record ProfileResponse(
         String nickname,

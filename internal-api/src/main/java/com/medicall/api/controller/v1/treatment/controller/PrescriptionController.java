@@ -1,4 +1,4 @@
-package com.medicall.domain.treatment.controller;
+package com.medicall.api.controller.v1.treatment.controller;
 
 import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.member.dto.response.PrescriptionResponse;

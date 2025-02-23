@@ -7,8 +7,6 @@ import com.medicall.domain.medical.domain.entity.Doctor;
 import com.medicall.domain.member.dto.response.DoctorProfileResponse;
 import com.medicall.domain.member.service.medical.DoctorQueryService;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

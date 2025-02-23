@@ -1,4 +1,4 @@
-package com.medicall.domain.treatment.dto.response;
+package com.medicall.api.controller.v1.treatment.dto.response;
 
 import java.time.LocalDateTime;
 
