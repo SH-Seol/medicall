@@ -1,27 +1,16 @@
 package com.medicall.storage.db.core.doctor;
 
-import com.medicall.common.domain.BaseEntity;
-import com.medicall.domain.member.domain.entity.Member;
+import com.medicall.storage.db.core.common.domain.BaseEntity;
+import com.medicall.storage.db.core.member.Member;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Diagnosis extends BaseEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @ManyToOne(optional = false)
     @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
@@ -32,4 +21,12 @@ public class Diagnosis extends BaseEntity {
 
     @Column(nullable = false)
     private String diagnosisDetails;
+
+    protected Diagnosis() {}
+
+    public Diagnosis(Doctor doctor, Member member, String diagnosisDetails) {
+        this.doctor = doctor;
+        this.member = member;
+        this.diagnosisDetails = diagnosisDetails;
+    }
 }

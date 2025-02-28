@@ -1,14 +1,11 @@
 package com.medicall.storage.db.core.treatment;
 
-import com.medicall.common.domain.BaseEntity;
-import com.medicall.domain.medical.domain.entity.Doctor;
-import com.medicall.domain.member.domain.entity.Member;
+import com.medicall.storage.db.core.common.domain.BaseEntity;
+import com.medicall.storage.db.core.doctor.Doctor;
+import com.medicall.storage.db.core.member.Member;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -23,12 +20,7 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Prescription extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
@@ -40,4 +32,5 @@ public class Prescription extends BaseEntity {
     @OneToMany(mappedBy = "prescription", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PrescriptionMedicine> prescriptionMedicines = new ArrayList<>();
 
+    protected Prescription() {}
 }
