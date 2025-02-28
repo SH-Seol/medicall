@@ -1,5 +1,5 @@
 rootProject.name = 'medicall'
-include 'web'
+include 'internal-api'
 include 'storage'
 include 'core'
 

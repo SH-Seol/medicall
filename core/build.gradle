@@ -2,18 +2,15 @@ plugins {
     id 'java'
 }
 
-group = 'medicall'
-version = '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
+    compileOnly 'org.springframework:spring-context'
+    compileOnly 'jakarta.transaction:jakarta.transaction-api'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
 
-test {
-    useJUnitPlatform()
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // QRcode
+    implementation 'com.google.zxing:core:3.5.3'
+    implementation 'com.google.zxing:javase:3.5.3'
 }
