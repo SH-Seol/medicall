@@ -1,25 +1,26 @@
 package com.medicall.storage.db.core.member;
 
 import com.medicall.storage.db.core.common.domain.BaseEntity;
+import com.medicall.storage.db.core.common.enums.MedicalRole;
 import com.medicall.storage.db.core.common.enums.MemberRole;
-import com.medicall.storage.db.core.doctor.Appointment;
-import com.medicall.storage.db.core.doctor.Diagnosis;
-import com.medicall.storage.db.core.treatment.Prescription;
+import com.medicall.storage.db.core.doctor.AppointmentEntity;
+import com.medicall.storage.db.core.doctor.DiagnosisEntity;
+import com.medicall.storage.db.core.treatment.PrescriptionEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import java.util.List;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-public class Member extends BaseEntity {
+public class MemberEntity extends BaseEntity {
+    //환자와 의사가 공통적으로 취급하는 것들
+    //소셜 로그인으로 얻는 정보들
+
     private String nickname;
     private String phone;
     private String email;
@@ -29,26 +30,29 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private MemberRole memberRole;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Diagnosis> diagnoses;
+    @Enumerated(EnumType.STRING)
+    private MedicalRole medicalRole;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Prescription> prescriptions;
+    private List<DiagnosisEntity> diagnoses;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> appointments;
+    private List<PrescriptionEntity> prescriptions;
 
-    protected Member() {}
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AppointmentEntity> appointments;
 
-    public Member(String nickname, String phone, String email) {
+    protected MemberEntity() {}
+
+    public MemberEntity(String nickname, String phone, String email) {
         this.nickname = nickname;
         this.phone = phone;
         this.email = email;
     }
 
     @Builder
-    public Member(Long memberId, String nickname, String email, String profileImage, MemberRole memberRole,
-                  Boolean allowance) {
+    public MemberEntity(Long memberId, String nickname, String email, String profileImage, MemberRole memberRole,
+                        Boolean allowance) {
         this.id = memberId;
         this.nickname = nickname;
         this.email = email;

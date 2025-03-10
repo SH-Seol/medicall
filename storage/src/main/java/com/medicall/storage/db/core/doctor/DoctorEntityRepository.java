@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface DoctorRepository extends JpaRepository<Doctor, Long> {
+public interface DoctorEntityRepository extends JpaRepository<DoctorEntity, Long> {
     @Query("SELECT DISTINCT d.doctor " +
-            "FROM Diagnosis d " +
+            "FROM DiagnosisEntity d " +
             "WHERE d.member.id = :memberId")
-    List<Doctor> findDoctorsByMemberId(@Param("memberId") Long memberId);
+    List<DoctorEntity> findDoctorsByMemberId(@Param("memberId") Long memberId);
 
 }

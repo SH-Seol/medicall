@@ -1,6 +1,6 @@
 package com.medicall.api.controller.v1.member;
 
-import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
+import com.medicall.api.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.medical.domain.repository.DoctorRepository;
 import com.medicall.domain.member.dto.request.MedicalRoleRequest;
 import com.medicall.domain.member.dto.response.AppointmentResponse;

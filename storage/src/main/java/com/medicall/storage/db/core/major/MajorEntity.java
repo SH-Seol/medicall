@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Getter
 @RequiredArgsConstructor
-public class Major extends BaseEntity {
+public class MajorEntity extends BaseEntity {
     /*
     전공명
     ex. 외과, 내과, 등등

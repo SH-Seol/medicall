@@ -1,4 +1,4 @@
-package com.medicall.auth.dto.response;
+package com.medicall.api.auth.dto.response;
 
 import lombok.Builder;
 

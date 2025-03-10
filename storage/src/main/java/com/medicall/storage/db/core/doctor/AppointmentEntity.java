@@ -1,32 +1,33 @@
 package com.medicall.storage.db.core.doctor;
 
 import com.medicall.storage.db.core.common.domain.BaseEntity;
-import com.medicall.storage.db.core.member.Member;
+import com.medicall.storage.db.core.member.MemberEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import java.time.LocalDate;
 import lombok.Getter;
 
 @Entity
 @Getter
-public class Diagnosis extends BaseEntity {
+public class AppointmentEntity extends BaseEntity {
+    @Column(nullable = false)
+    LocalDate appointmentDate;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "doctor_id", nullable = false)
-    private Doctor doctor;
+    private DoctorEntity doctor;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "member_id", nullable = false)
-    private Member member;
+    private MemberEntity member;
 
-    @Column(nullable = false)
-    private String diagnosisDetails;
+    protected AppointmentEntity() {}
 
-    protected Diagnosis() {}
-
-    public Diagnosis(Doctor doctor, Member member, String diagnosisDetails) {
+    public AppointmentEntity(LocalDate appointmentDate, DoctorEntity doctor, MemberEntity member) {
+        this.appointmentDate = appointmentDate;
         this.doctor = doctor;
         this.member = member;
-        this.diagnosisDetails = diagnosisDetails;
     }
 }

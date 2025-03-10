@@ -1,13 +1,12 @@
 package com.medicall.api.controller.v1.treatment.controller;
 
-import com.medicall.auth.security.oauth2.dto.CustomOAuth2User;
+import com.medicall.api.auth.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.member.dto.response.PrescriptionResponse;
 import com.medicall.domain.treatment.repository.PrescriptionRepository;
 import com.medicall.domain.treatment.service.PrescriptionQueryService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

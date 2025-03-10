@@ -2,9 +2,9 @@ package com.medicall.storage.db.core.doctor;
 
 import com.medicall.storage.db.core.common.domain.BaseEntity;
 import com.medicall.storage.db.core.common.enums.MedicalStatus;
-import com.medicall.storage.db.core.hospital.Hospital;
-import com.medicall.storage.db.core.major.Major;
-import com.medicall.storage.db.core.treatment.Prescription;
+import com.medicall.storage.db.core.hospital.HospitalEntity;
+import com.medicall.storage.db.core.major.MajorEntity;
+import com.medicall.storage.db.core.treatment.PrescriptionEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,31 +19,33 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Doctor extends BaseEntity {
+public class DoctorEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
     //전공
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "major_id")
-    private Major major;
+    private MajorEntity major;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id")
-    private Hospital hospital;
+    private HospitalEntity hospital;
+
+    private String licenseNumber;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private MedicalStatus status;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Prescription> prescriptions;
+    private List<PrescriptionEntity> prescriptions;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Diagnosis> diagnoses;
+    private List<DiagnosisEntity> diagnoses;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Appointment> appointments;
+    private List<AppointmentEntity> appointments;
 
     @Column
     private String description;
@@ -51,9 +53,9 @@ public class Doctor extends BaseEntity {
     @Column
     private Integer years;
 
-    protected Doctor() {}
+    protected DoctorEntity() {}
 
-    public Doctor(String name, Major major, Hospital hospital) {
+    public DoctorEntity(String name, MajorEntity major, HospitalEntity hospital) {
         this.name = name;
         this.major = major;
         this.hospital = hospital;

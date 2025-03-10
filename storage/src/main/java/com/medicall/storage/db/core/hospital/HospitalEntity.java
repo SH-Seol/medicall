@@ -1,8 +1,8 @@
 package com.medicall.storage.db.core.hospital;
 
 import com.medicall.storage.db.core.common.domain.BaseEntity;
-import com.medicall.storage.db.core.doctor.Doctor;
-import com.medicall.storage.db.core.major.Speciality;
+import com.medicall.storage.db.core.doctor.DoctorEntity;
+import com.medicall.storage.db.core.major.SpecialityEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Hospital extends BaseEntity {
+public class HospitalEntity extends BaseEntity {
     /*
     병원 이름
      */
@@ -28,13 +28,13 @@ public class Hospital extends BaseEntity {
     병원에 속한 의사 목록
      */
     @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Doctor> doctors = new ArrayList<>();
+    private List<DoctorEntity> doctors = new ArrayList<>();
 
     /*
     병원 진료과목
      */
     @OneToMany(mappedBy = "hospital", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Speciality> specialities = new ArrayList<>();
+    private List<SpecialityEntity> specialities = new ArrayList<>();
 
     @Column
     private String description;
