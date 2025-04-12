@@ -1,4 +1,4 @@
-package com.medicall.api.auth.oauth2;
+package com.medicall.api.security.oauth2;
 
 
 public enum SocialType {

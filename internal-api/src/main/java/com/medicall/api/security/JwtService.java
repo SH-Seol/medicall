@@ -1,5 +1,7 @@
-package com.medicall.api.auth.security;
+package com.medicall.api.security;
 
+import com.medicall.api.security.error.AuthErrorType;
+import com.medicall.api.security.error.AuthException;
 import java.util.Date;
 import org.springframework.stereotype.Service;
 

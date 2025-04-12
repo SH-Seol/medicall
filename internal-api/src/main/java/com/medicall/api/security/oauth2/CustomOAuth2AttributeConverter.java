@@ -1,7 +1,7 @@
-package com.medicall.api.auth.oauth2;
+package com.medicall.api.security.oauth2;
 
-import com.medicall.api.auth.error.AuthErrorType;
-import com.medicall.api.auth.error.AuthException;
+import com.medicall.api.security.error.AuthErrorType;
+import com.medicall.api.security.error.AuthException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.core.convert.converter.Converter;

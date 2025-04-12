@@ -1,4 +1,4 @@
-package com.medicall.api.auth;
+package com.medicall.api.security;
 
 import jakarta.servlet.http.Cookie;
 import org.springframework.stereotype.Component;

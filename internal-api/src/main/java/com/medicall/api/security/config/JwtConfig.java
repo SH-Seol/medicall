@@ -1,6 +1,6 @@
-package com.medicall.api.auth.config;
+package com.medicall.api.security.config;
 
-import com.medicall.api.auth.JwtProperties;
+import com.medicall.api.security.JwtProperties;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import javax.crypto.SecretKey;

@@ -1,5 +1,10 @@
-package com.medicall.api.auth.oauth2;
+package com.medicall.api.security.oauth2;
 
+import com.medicall.api.security.CookieProvider;
+import com.medicall.api.security.JwtProvider;
+import com.medicall.api.security.error.AuthErrorType;
+import com.medicall.api.security.error.AuthException;
+import com.medicall.domain.member.ProfileInfo;
 import com.medicall.storage.db.core.member.SocialInfo;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

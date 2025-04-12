@@ -1,7 +1,8 @@
-package com.medicall.api.auth.security.handler;
+package com.medicall.api.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medicall.api.auth.error.AuthErrorType;
+import com.medicall.api.security.error.AuthErrorType;
+import com.medicall.api.support.response.ApiResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;

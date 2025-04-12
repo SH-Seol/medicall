@@ -1,10 +1,6 @@
-package com.medicall.api.auth;
+package com.medicall.api.security;
 
-import com.medicall.api.auth.dto.request.AllowanceRequest;
-import com.medicall.api.auth.dto.response.AllowanceResponse;
-import com.medicall.api.auth.dto.response.RefreshResponse;
-import com.medicall.api.auth.oauth2.dto.CustomOAuth2User;
-import com.medicall.api.auth.security.JwtService;
+import com.medicall.api.support.response.ApiResponse;
 import com.medicall.support.error.response.ResponseFactory;
 import com.medicall.support.error.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,24 +40,25 @@ public class AuthController {
         return ApiResponse.success(AccessTokenRefreshResponse.of(result));
     }
 
-    @Operation(summary = "약관 동의")
-    @PostMapping("/terms")
-    public ResponseEntity<SuccessResponse<AllowanceResponse>> agreeToTerms(
-            @Valid @RequestBody AllowanceRequest request,
-            HttpServletResponse response
-    ) throws IOException {
-        var result = authService.updateAllowance(request.token());
-        return ResponseFactory.success(result);
-    }
+//    @Operation(summary = "약관 동의")
+//    @PostMapping("/terms")
+//    public ResponseEntity<SuccessResponse<AllowanceResponse>> agreeToTerms(
+//            @Valid @RequestBody AllowanceRequest request,
+//            HttpServletResponse response
+//    ) throws IOException {
+//        var result = authService.updateAllowance(request.token());
+//        return ResponseFactory.success(result);
+//    }
 
     @Operation(summary = "로그아웃")
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout(
-            HttpServletRequest request,
-            @AuthenticationPrincipal CustomOAuth2User oAuth2User
+    public ApiResponse<?> logout(
+            HttpServletRequest httpRequest
     ) {
-        String accessToken = jwtService.resolveAccessToken(request);
-        authService.logout(oAuth2User.getMemberId(), accessToken);
-        return ResponseFactory.noContent();
+        String accessToken = JwtHttpExtractor.extractAccessToken(httpRequest);
+        String refreshToken = JwtHttpExtractor.extractRefreshToken(httpRequest, properties.refresh()
+                .name());
+        jwtService.invalidateTokens(accessToken, refreshToken);
+        return ApiResponse.success();
     }
 }

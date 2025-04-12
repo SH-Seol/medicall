@@ -1,4 +1,4 @@
-package com.medicall.api.auth.support.response;
+package com.medicall.api.support.response;
 
 public enum ResultType {
     SUCCESS,

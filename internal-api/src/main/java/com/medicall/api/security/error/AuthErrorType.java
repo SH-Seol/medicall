@@ -1,4 +1,4 @@
-package com.medicall.api.auth.error;
+package com.medicall.api.security.error;
 
 import org.springframework.boot.logging.LogLevel;
 import org.springframework.http.HttpStatus;

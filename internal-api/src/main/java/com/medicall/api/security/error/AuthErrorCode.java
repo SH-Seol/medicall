@@ -1,4 +1,4 @@
-package com.medicall.api.auth.error;
+package com.medicall.api.security.error;
 
 public enum AuthErrorCode {
     AUTH01("AUTH-01"),

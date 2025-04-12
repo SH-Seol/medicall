@@ -1,7 +1,12 @@
-package com.medicall.api.auth.config;
+package com.medicall.api.security.config;
 
-import com.medicall.api.auth.oauth2.CustomOAuth2AttributeConverter;
-import com.medicall.api.auth.oauth2.CustomOAuth2SuccessHandler;
+import com.medicall.api.security.CustomAccessDeniedHandler;
+import com.medicall.api.security.CustomAuthenticationEntryPoint;
+import com.medicall.api.security.JwtAuthorizationFilter;
+import com.medicall.api.security.JwtProvider;
+import com.medicall.api.security.JwtService;
+import com.medicall.api.security.oauth2.CustomOAuth2AttributeConverter;
+import com.medicall.api.security.oauth2.CustomOAuth2SuccessHandler;
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

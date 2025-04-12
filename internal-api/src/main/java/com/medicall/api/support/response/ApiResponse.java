@@ -1,5 +1,9 @@
-package com.medicall.api.auth.support.response;
+package com.medicall.api.support.response;
 
+import com.medicall.api.security.error.AuthErrorType;
+import com.medicall.api.support.error.ApiErrorMessage;
+import com.medicall.api.support.error.ApiErrorType;
+import com.medicall.support.error.CoreErrorType;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "공통 응답 및 에러")

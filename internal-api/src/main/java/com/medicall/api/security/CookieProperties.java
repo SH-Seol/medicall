@@ -1,4 +1,4 @@
-package com.medicall.api.auth;
+package com.medicall.api.security;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

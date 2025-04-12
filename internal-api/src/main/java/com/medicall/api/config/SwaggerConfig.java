@@ -1,6 +1,6 @@
 package com.medicall.api.config;
 
-import com.medicall.api.auth.security.oauth2.enums.SocialType;
+import com.medicall.api.security.oauth2.SocialType;
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
@@ -65,7 +65,7 @@ public class SwaggerConfig {
 
     private PathItem pathItem(SocialType socialType){
         String socialId = socialType.getRegistrationId();
-        String socialTitle = socialType.getTitle();
+        String socialTitle = socialType.getDescription();
         return new PathItem().get(new Operation()
                 .tags(List.of(SOCIAL_TAG))
                 .summary(socialTitle)
