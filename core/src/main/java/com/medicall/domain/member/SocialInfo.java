@@ -1,2 +1,8 @@
-package com.medicall.domain.member;public class SocialInfo {
+package com.medicall.domain.member;
+
+public record SocialInfo(
+        String oauthId,
+        String provider,
+        String email
+) {
 }

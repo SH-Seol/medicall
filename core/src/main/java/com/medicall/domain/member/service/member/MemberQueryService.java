@@ -5,8 +5,7 @@ import com.medicall.domain.member.domain.repository.MemberRepository;
 import com.medicall.domain.member.dto.response.AppointmentResponse;
 import com.medicall.domain.member.dto.response.ProfileResponse;
 import com.medicall.domain.member.mapper.MemberMapper;
-import com.medicall.error.code.MemberErrorCode;
-import com.medicall.error.exception.CustomException;
+import com.medicall.support.error.exception.CustomException;
 
 @Service
 @Transactional(readOnly = true)
