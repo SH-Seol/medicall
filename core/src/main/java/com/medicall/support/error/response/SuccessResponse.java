@@ -1,4 +1,4 @@
-package com.medicall.error.response;
+package com.medicall.support.error.response;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.v3.oas.annotations.media.Schema;

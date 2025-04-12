@@ -1,4 +1,4 @@
-package com.medicall.error.response;
+package com.medicall.support.error.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

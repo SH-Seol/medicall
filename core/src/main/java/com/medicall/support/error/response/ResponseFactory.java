@@ -1,7 +1,6 @@
-package com.medicall.error.response;
+package com.medicall.support.error.response;
 
 
-import com.medicall.error.code.ErrorCode;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
