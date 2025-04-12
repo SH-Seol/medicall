@@ -1,6 +1,6 @@
 package com.medicall.api.controller.v1.member;
 
-import com.medicall.api.auth.security.oauth2.dto.CustomOAuth2User;
+import com.medicall.api.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.medical.domain.repository.DoctorRepository;
 import com.medicall.domain.member.dto.request.MedicalRoleRequest;
 import com.medicall.domain.member.dto.response.AppointmentResponse;
@@ -21,9 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/v1/members")
 @Tag(name = "\uD83D\uDC68\u200D\uD83C\uDF3E 사용자", description = "Member API")
 public class MemberController {

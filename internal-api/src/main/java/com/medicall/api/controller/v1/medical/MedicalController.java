@@ -1,10 +1,6 @@
 package com.medicall.api.controller.v1.medical;
 
-import com.medicall.domain.location.domain.entity.Hospital;
-import com.medicall.domain.location.dto.response.HospitalResponse;
 import com.medicall.domain.location.service.HospitalQueryService;
-import com.medicall.domain.medical.domain.entity.Doctor;
-import com.medicall.domain.member.dto.response.DoctorProfileResponse;
 import com.medicall.domain.member.service.medical.DoctorQueryService;
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("api/v1/medical")
 public class MedicalController {
 

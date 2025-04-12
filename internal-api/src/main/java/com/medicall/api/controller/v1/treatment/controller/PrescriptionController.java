@@ -1,12 +1,10 @@
 package com.medicall.api.controller.v1.treatment.controller;
 
-import com.medicall.api.auth.security.oauth2.dto.CustomOAuth2User;
+import com.medicall.api.security.oauth2.dto.CustomOAuth2User;
 import com.medicall.domain.member.dto.response.PrescriptionResponse;
 import com.medicall.domain.treatment.repository.PrescriptionRepository;
 import com.medicall.domain.treatment.service.PrescriptionQueryService;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("api/v1/prescriptions")
-@Slf4j
 public class PrescriptionController {
     private final PrescriptionRepository prescriptionRepository;
     private final PrescriptionQueryService prescriptionQueryService;
