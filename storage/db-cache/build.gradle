@@ -1,0 +1,13 @@
+dependencies {
+    implementation project(':core')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+}
+
+processResources.dependsOn('copyConfig')
+
+tasks.register('copyConfig', Copy) {
+    from '../../Config/storage-redis/'
+    include "application*.yml"
+    into 'src/main/resources'
+}
