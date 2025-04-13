@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    compileOnly 'org.springframework:spring-context'
+    compileOnly 'jakarta.transaction:jakarta.transaction-api'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // QRcode
+    implementation 'com.google.zxing:core:3.5.3'
+    implementation 'com.google.zxing:javase:3.5.3'
+}

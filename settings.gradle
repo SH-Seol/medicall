@@ -1,1 +1,21 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "org.springframework.boot") {
+                useVersion(springBootVersion)
+            } else if (requested.id.id == "io.spring.dependency-management") {
+                useVersion(springDependencyManagementVersion)
+            } else if (requested.id.id == "org.sonarqube") {
+                useVersion(sonarqubeVersion)
+            }
+        }
+    }
+}
+
 rootProject.name = 'medicall'
+include 'internal-api'
+include 'storage'
+include 'core'
+include 'storage:db-cache'
+include 'storage:db-core'
+
