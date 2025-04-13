@@ -1,7 +1,7 @@
 package com.medicall.api.security;
 
 import com.medicall.api.security.error.AuthErrorType;
-import jakarta.security.auth.message.AuthException;
+import com.medicall.api.security.error.AuthException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;

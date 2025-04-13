@@ -4,8 +4,11 @@ import com.medicall.api.security.CookieProvider;
 import com.medicall.api.security.JwtProvider;
 import com.medicall.api.security.error.AuthErrorType;
 import com.medicall.api.security.error.AuthException;
+import com.medicall.domain.member.Member;
+import com.medicall.domain.member.MemberService;
 import com.medicall.domain.member.ProfileInfo;
-import com.medicall.storage.db.core.member.SocialInfo;
+import com.medicall.domain.member.SocialInfo;
+import com.medicall.domain.term.TermService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -28,16 +31,16 @@ public class CustomOAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHa
     private final CookieProvider cookieManager;
     private final RedirectProperties redirectProperties;
     private final JwtProvider jwtProvider;
-    private final TermsService termsService;
+    private final TermService termService;
 
     public CustomOAuth2SuccessHandler(MemberService memberService, CookieProvider cookieManager,
                                       RedirectProperties redirectProperties, JwtProvider jwtProvider,
-                                      TermsService termsService) {
+                                      TermService termService) {
         this.memberService = memberService;
         this.cookieManager = cookieManager;
         this.redirectProperties = redirectProperties;
         this.jwtProvider = jwtProvider;
-        this.termsService = termsService;
+        this.termService = termService;
     }
 
     @Override
@@ -57,8 +60,7 @@ public class CustomOAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHa
     private void handleExistingMember(HttpServletResponse response, Member member) {
         try {
             long memberId = member.memberId();
-            boolean hasAgreedToTerms = termsService.hasMemberAgreedToActiveTerms(memberId);
-
+            boolean hasAgreedToTerms = termService.hasMemberAgreedToActiveTerms(memberId);
             String redirectUrl = hasAgreedToTerms
                     ? redirectProperties.authenticatedRedirectUrl()
                     : redirectProperties.termsRedirectUrl() + "?memberId=" + memberId;

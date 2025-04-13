@@ -4,6 +4,7 @@ import com.medicall.api.security.CustomUserDetails;
 import com.medicall.api.security.error.AuthErrorType;
 import com.medicall.api.security.error.AuthException;
 import com.medicall.domain.member.Member;
+import com.medicall.domain.member.MemberReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -47,7 +48,7 @@ public class ApiMemberArgumentResolver implements HandlerMethodArgumentResolver 
         }
 
         Long memberId = customUserDetails.memberId();
-        Member member = memberReader.read(memberId);
+        Member member = memberReader.readId(memberId);
         return new ApiMember(
                 memberId,
                 member.socialInfo(),
