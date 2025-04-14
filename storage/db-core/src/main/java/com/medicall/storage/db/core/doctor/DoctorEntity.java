@@ -15,10 +15,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import java.util.List;
-import lombok.Getter;
 
 @Entity
-@Getter
 public class DoctorEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
@@ -59,5 +57,45 @@ public class DoctorEntity extends BaseEntity {
         this.name = name;
         this.major = major;
         this.hospital = hospital;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public MajorEntity getMajor() {
+        return major;
+    }
+
+    public HospitalEntity getHospital() {
+        return hospital;
+    }
+
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
+
+    public MedicalStatus getStatus() {
+        return status;
+    }
+
+    public List<PrescriptionEntity> getPrescriptions() {
+        return prescriptions;
+    }
+
+    public List<DiagnosisEntity> getDiagnoses() {
+        return diagnoses;
+    }
+
+    public List<AppointmentEntity> getAppointments() {
+        return appointments;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getYears() {
+        return years;
     }
 }

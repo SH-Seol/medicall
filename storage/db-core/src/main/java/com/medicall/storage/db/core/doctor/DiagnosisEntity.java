@@ -6,10 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Getter;
 
 @Entity
-@Getter
 public class DiagnosisEntity extends BaseEntity {
     @ManyToOne(optional = false)
     @JoinColumn(name = "doctor_id", nullable = false)
@@ -28,5 +26,17 @@ public class DiagnosisEntity extends BaseEntity {
         this.doctor = doctor;
         this.member = member;
         this.diagnosisDetails = diagnosisDetails;
+    }
+
+    public DoctorEntity getDoctor() {
+        return doctor;
+    }
+
+    public MemberEntity getMember() {
+        return member;
+    }
+
+    public String getDiagnosisDetails() {
+        return diagnosisDetails;
     }
 }

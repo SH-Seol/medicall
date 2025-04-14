@@ -11,13 +11,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
 
 /*
 진료 내용
  */
 @Entity
-@Getter
 public class PrescriptionEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)

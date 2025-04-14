@@ -7,10 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
-import lombok.Getter;
 
 @Entity
-@Getter
 public class AppointmentEntity extends BaseEntity {
     @Column(nullable = false)
     LocalDate appointmentDate;
@@ -29,5 +27,17 @@ public class AppointmentEntity extends BaseEntity {
         this.appointmentDate = appointmentDate;
         this.doctor = doctor;
         this.member = member;
+    }
+
+    public LocalDate getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public DoctorEntity getDoctor() {
+        return doctor;
+    }
+
+    public MemberEntity getMember() {
+        return member;
     }
 }
