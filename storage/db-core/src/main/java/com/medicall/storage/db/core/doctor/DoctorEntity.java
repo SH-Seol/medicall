@@ -3,7 +3,8 @@ package com.medicall.storage.db.core.doctor;
 import com.medicall.storage.db.core.common.domain.BaseEntity;
 import com.medicall.storage.db.core.common.enums.MedicalStatus;
 import com.medicall.storage.db.core.hospital.HospitalEntity;
-import com.medicall.storage.db.core.major.MajorEntity;
+import com.medicall.storage.db.core.department.DoctorMedicalDepartmentEntity;
+import com.medicall.storage.db.core.department.MedicalDepartmentEntity;
 import com.medicall.storage.db.core.treatment.PrescriptionEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -23,8 +24,8 @@ public class DoctorEntity extends BaseEntity {
 
     //전공
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "major_id")
-    private MajorEntity major;
+    @JoinColumn(name = "department_id")
+    private DoctorMedicalDepartmentEntity medicalDepartment;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id")
@@ -53,9 +54,9 @@ public class DoctorEntity extends BaseEntity {
 
     protected DoctorEntity() {}
 
-    public DoctorEntity(String name, MajorEntity major, HospitalEntity hospital) {
+    public DoctorEntity(String name, DoctorMedicalDepartmentEntity medicalDepartment, HospitalEntity hospital) {
         this.name = name;
-        this.major = major;
+        this.medicalDepartment = medicalDepartment;
         this.hospital = hospital;
     }
 
@@ -63,8 +64,8 @@ public class DoctorEntity extends BaseEntity {
         return name;
     }
 
-    public MajorEntity getMajor() {
-        return major;
+    public DoctorMedicalDepartmentEntity getDoctorMedicalDepartment() {
+        return medicalDepartment;
     }
 
     public HospitalEntity getHospital() {
